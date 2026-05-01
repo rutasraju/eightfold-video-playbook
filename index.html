@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Eightfold Video Storytelling Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* ===== Eightfold Brand Tokens (sourced from eightfold.ai/css) ===== */
+    --core-navy:        #191841;
+    --core-navy-deep:   #0E0D2B;
+    --eightfold-teal:   #88E2D2;
+    --teal-bright:      #36D6AB;
+    --smart-orange:     #EB5854;
+    --electric-blue:    #0708EE;
+    --quantum-indigo:   #5741DC;
+    --agentic-purple:   #AF4FED;
+    --deep-magenta:     #A1378B;
+    --digital-magenta:  #DC3FB6;
+    --fusion-gold:      #F8A456;
+
+    /* ===== Functional Tokens ===== */
+    --ink:        var(--core-navy);
+    --ink-soft:   #484B58;
+    --paper:      #FBFAFC;
+    --paper-warm: #F4F1F8;
+    --rule:       #DCD8E6;
+    --muted:      #6B6E80;
+    --shadow-soft: 0 1px 2px rgba(25,24,65,.04), 0 8px 24px rgba(25,24,65,.08);
+
+    /* Brand gradients (from eightfold.ai stylesheet) */
+    --grad-signature: linear-gradient(92deg, #EB5854 25.31%, #0708EE 74.95%, #5741DC 99.77%);
+    --grad-rainbow:   linear-gradient(90deg, #EB5854 0%, #F8A456 18%, #88E2D2 40%, #0708EE 65%, #5741DC 85%, #AF4FED 100%);
+    --grad-warm-cool: linear-gradient(135deg, #EB5854 0%, #A1378B 50%, #5741DC 100%);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter Tight', -apple-system, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.55;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .display, h1, h2, h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-feature-settings: "ss01", "ss02";
+    letter-spacing: -0.02em;
+  }
+
+  .mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-feature-settings: "ss01";
+  }
+
+  /* ============ MASTHEAD ============ */
+  .masthead {
+    background: var(--core-navy);
+    color: var(--paper);
+    padding: 28px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .masthead::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--grad-rainbow);
+  }
+
+  .mast-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .mast-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .mast-mark {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    position: relative;
+    background: var(--eightfold-teal);
+    box-shadow: 0 0 0 1.5px var(--eightfold-teal),
+                0 0 24px rgba(136, 226, 210, 0.4);
+  }
+  .mast-mark::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border-radius: 50%;
+    background: var(--core-navy);
+  }
+  .mast-mark::after {
+    content: '';
+    position: absolute;
+    width: 6px; height: 6px;
+    top: 11px; left: 11px;
+    border-radius: 50%;
+    background: var(--eightfold-teal);
+  }
+
+  .mast-title {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .mast-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: rgba(251,250,252,0.55);
+    text-transform: uppercase;
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 96px 48px 72px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--electric-blue);
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .hero-eyebrow::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    max-width: 240px;
+  }
+
+  .hero h1 {
+    font-size: clamp(48px, 7vw, 88px);
+    font-weight: 400;
+    line-height: 0.98;
+    margin-bottom: 28px;
+    letter-spacing: -0.035em;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 300;
+    background: var(--grad-warm-cool);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-deck {
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 720px;
+    font-weight: 400;
+    margin-bottom: 56px;
+  }
+
+  .hero-meta {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+    max-width: 880px;
+  }
+
+  .hero-meta-item .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .hero-meta-item .value {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  /* ============ NORTH STAR ============ */
+  .north-star {
+    background: var(--core-navy);
+    color: var(--paper);
+    padding: 80px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .north-star::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background:
+      radial-gradient(49% 60% at 92% 0%, rgba(136, 226, 210, 0.18) 0%, transparent 60%),
+      radial-gradient(60% 80% at 0% 100%, rgba(235, 88, 84, 0.14) 0%, transparent 50%),
+      radial-gradient(50% 60% at 50% 50%, rgba(87, 65, 220, 0.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .ns-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .ns-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--eightfold-teal);
+    margin-bottom: 24px;
+  }
+
+  .ns-quote {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: clamp(32px, 4.5vw, 56px);
+    line-height: 1.15;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    margin-bottom: 32px;
+    max-width: 980px;
+  }
+
+  .ns-quote .accent {
+    font-style: normal;
+    font-weight: 500;
+    color: var(--eightfold-teal);
+    background: linear-gradient(180deg, transparent 60%, rgba(136, 226, 210, 0.20) 60%);
+    padding: 0 4px;
+  }
+
+  .ns-byline {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: rgba(251,250,252,0.55);
+    text-transform: uppercase;
+  }
+
+  /* ============ SECTION SHELL ============ */
+  section.chapter {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 96px 48px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .ch-header {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 48px;
+    margin-bottom: 72px;
+    align-items: baseline;
+  }
+
+  .ch-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    color: var(--electric-blue);
+  }
+
+  .ch-num .slash {
+    color: var(--rule);
+    margin: 0 8px;
+  }
+
+  .ch-title {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 400;
+    line-height: 1.0;
+    letter-spacing: -0.025em;
+  }
+
+  .ch-title em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--quantum-indigo);
+  }
+
+  .ch-deck {
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 720px;
+    margin-top: 24px;
+  }
+
+  /* ============ PRINCIPLES ============ */
+  .principles {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .principle {
+    padding: 48px 36px;
+    border-right: 1px solid var(--rule);
+    position: relative;
+    transition: background 200ms ease;
+  }
+
+  .principle:last-child { border-right: none; }
+
+  .principle:hover {
+    background: var(--paper-warm);
+  }
+
+  .principle.featured {
+    background: var(--core-navy);
+    color: var(--paper);
+    position: relative;
+    overflow: hidden;
+  }
+  .principle.featured::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(60% 40% at 100% 0%, rgba(136, 226, 210, 0.14) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .p-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  .principle.featured .p-num {
+    color: var(--eightfold-teal);
+  }
+
+  .p-title {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .p-title em {
+    font-style: italic;
+    color: var(--quantum-indigo);
+  }
+
+  .principle.featured .p-title em {
+    color: var(--eightfold-teal);
+  }
+
+  .p-body {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    position: relative;
+  }
+
+  .principle.featured .p-body {
+    color: rgba(251,250,252,0.78);
+  }
+
+  .p-rule {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--rule);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--ink);
+    line-height: 1.5;
+    position: relative;
+  }
+
+  .principle.featured .p-rule {
+    color: var(--eightfold-teal);
+    border-top-color: rgba(136, 226, 210, 0.3);
+  }
+
+  /* ============ ZERO SECTION (PERSONA & HOOK) ============ */
+  .zero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+  }
+
+  .zero-card {
+    padding: 40px;
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    position: relative;
+  }
+
+  .zero-card .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--electric-blue);
+    margin-bottom: 16px;
+  }
+
+  .zero-card h3 {
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+
+  .zero-card p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin-bottom: 16px;
+  }
+
+  .zero-card .gate {
+    margin-top: 24px;
+    padding: 16px 20px;
+    background: var(--core-navy);
+    color: var(--paper);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .zero-card .gate strong {
+    color: var(--eightfold-teal);
+    font-weight: 500;
+  }
+
+  /* ============ STORY BEATS ============ */
+  .beats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .beat {
+    display: grid;
+    grid-template-columns: 100px 1fr 320px;
+    gap: 48px;
+    padding: 36px 0;
+    border-top: 1px solid var(--rule);
+    align-items: baseline;
+  }
+
+  .beat:last-child {
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .beat-marker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--electric-blue);
+    letter-spacing: 0.06em;
+  }
+
+  .beat-marker .seconds {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 4px;
+    display: block;
+  }
+
+  .beat-content h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+
+  .beat-content h4 em {
+    font-style: italic;
+    color: var(--quantum-indigo);
+    font-weight: 400;
+  }
+
+  .beat-content .purpose {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+
+  .beat-content p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+
+  .beat-example {
+    background: var(--paper-warm);
+    border-left: 2px solid var(--electric-blue);
+    padding: 16px 20px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .beat-example .ex-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--electric-blue);
+    margin-bottom: 8px;
+  }
+
+  .beat-example .script {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  .beat.feature {
+    background: linear-gradient(90deg, rgba(136, 226, 210, 0.10) 0%, transparent 70%);
+    margin: 0 -24px;
+    padding: 36px 24px;
+  }
+
+  .beat.feature .beat-marker {
+    color: var(--teal-bright);
+  }
+
+  .beat.feature h4 em {
+    color: var(--teal-bright);
+  }
+
+  .beat.feature .beat-example {
+    border-left-color: var(--teal-bright);
+    background: rgba(136, 226, 210, 0.10);
+  }
+  .beat.feature .beat-example .ex-label {
+    color: var(--teal-bright);
+  }
+
+  /* ============ DO/DONT ============ */
+  .dodont {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--rule);
+  }
+
+  .dodont-col {
+    padding: 40px;
+  }
+
+  .dodont-col.do {
+    border-right: 1px solid var(--rule);
+  }
+
+  .dodont-col h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .do h4 { color: var(--teal-bright); }
+  .dont h4 { color: var(--smart-orange); }
+
+  .dodont-col h4::before {
+    content: '';
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+
+  .dodont-list {
+    list-style: none;
+  }
+
+  .dodont-list li {
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--rule);
+    color: var(--ink-soft);
+  }
+
+  .dodont-list li:last-child { border-bottom: none; }
+
+  .dodont-list li strong {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    color: var(--ink);
+    font-style: italic;
+  }
+
+  /* ============ SHIFTS TABLE ============ */
+  .shifts {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    border-top: 1px solid var(--ink);
+  }
+
+  .shift {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 32px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: center;
+  }
+
+  .shift-from, .shift-to {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+  }
+
+  .shift-from {
+    color: var(--muted);
+    text-decoration: line-through;
+    text-decoration-color: var(--smart-orange);
+    text-decoration-thickness: 1px;
+  }
+
+  .shift-to {
+    color: var(--ink);
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .shift-arrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--electric-blue);
+  }
+
+  /* ============ THE GATE (CHECKLIST) ============ */
+  .gate-section {
+    background: var(--paper-warm);
+    margin: 0 -48px;
+    padding: 96px 48px;
+  }
+
+  .gate-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .gate-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .gate-item {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 36px 32px;
+    position: relative;
+    transition: all 200ms ease;
+  }
+
+  .gate-item:hover {
+    border-color: var(--ink);
+    box-shadow: var(--shadow-soft);
+    transform: translateY(-2px);
+  }
+
+  .gate-num {
+    position: absolute;
+    top: -16px; left: 32px;
+    background: var(--core-navy);
+    color: var(--paper);
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .gate-item h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    margin: 16px 0 14px;
+  }
+
+  .gate-item p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+
+  .gate-fail {
+    margin-top: 48px;
+    padding: 28px 32px;
+    background: var(--core-navy);
+    color: var(--paper);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+    position: relative;
+    overflow: hidden;
+  }
+  .gate-fail::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: var(--smart-orange);
+  }
+  .gate-fail strong {
+    color: var(--smart-orange);
+    font-weight: 500;
+  }
+
+  /* ============ COMPRESSION TEST ============ */
+  .compression {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .timer-card {
+    background: var(--core-navy);
+    color: var(--paper);
+    padding: 56px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .timer-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 50% 100%, rgba(136, 226, 210, 0.18) 0%, transparent 60%),
+      radial-gradient(circle at 0% 0%, rgba(87, 65, 220, 0.14) 0%, transparent 50%);
+  }
+
+  .timer-num {
+    font-family: 'Fraunces', serif;
+    font-size: 144px;
+    font-weight: 300;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    background: linear-gradient(180deg, var(--eightfold-teal) 0%, var(--teal-bright) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+  }
+
+  .timer-unit {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: rgba(251,250,252,0.55);
+    text-transform: uppercase;
+    margin-top: 8px;
+    position: relative;
+  }
+
+  .compression-text h3 {
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+
+  .compression-text p {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin-bottom: 16px;
+  }
+
+  /* ============ FORMULA ============ */
+  .formula {
+    background: var(--core-navy);
+    color: var(--paper);
+    padding: 120px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .formula::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(40% 60% at 25% 30%, rgba(136, 226, 210, 0.10) 0%, transparent 50%),
+      radial-gradient(50% 60% at 75% 70%, rgba(87, 65, 220, 0.18) 0%, transparent 50%),
+      radial-gradient(30% 40% at 50% 100%, rgba(235, 88, 84, 0.12) 0%, transparent 60%);
+  }
+
+  .formula-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--eightfold-teal);
+    margin-bottom: 32px;
+    position: relative;
+  }
+
+  .formula-line {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .formula-line .pipe {
+    color: var(--eightfold-teal);
+    margin: 0 16px;
+    font-weight: 200;
+  }
+
+  .formula-line em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--eightfold-teal);
+  }
+
+  /* ============ COLOPHON ============ */
+  .colophon {
+    background: var(--paper);
+    padding: 56px 48px 72px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .colo-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 48px;
+  }
+
+  .colo-block .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  .colo-block p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+
+  .palette-strip {
+    margin-top: 32px;
+    display: flex;
+    height: 8px;
+    border-radius: 1px;
+    overflow: hidden;
+  }
+  .palette-strip span {
+    flex: 1;
+    display: block;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 900px) {
+    .hero, section.chapter, .masthead { padding-left: 24px; padding-right: 24px; }
+    .hero { padding-top: 64px; padding-bottom: 48px; }
+    .hero-meta { grid-template-columns: 1fr 1fr; gap: 24px; }
+    .ch-header { grid-template-columns: 1fr; gap: 16px; margin-bottom: 48px; }
+    .principles { grid-template-columns: 1fr; }
+    .principle { border-right: none; border-bottom: 1px solid var(--rule); }
+    .principle:last-child { border-bottom: none; }
+    .zero-grid { grid-template-columns: 1fr; gap: 24px; }
+    .beat { grid-template-columns: 1fr; gap: 16px; padding: 28px 0; }
+    .dodont { grid-template-columns: 1fr; }
+    .dodont-col.do { border-right: none; border-bottom: 1px solid var(--rule); }
+    .shift { grid-template-columns: 1fr; gap: 8px; text-align: left; }
+    .gate-items { grid-template-columns: 1fr; gap: 32px; margin-top: 32px; }
+    .gate-section { margin: 0 -24px; padding: 64px 24px; }
+    .compression { grid-template-columns: 1fr; gap: 32px; }
+    .timer-num { font-size: 96px; }
+    .colo-inner { grid-template-columns: 1fr; gap: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ MASTHEAD ============ -->
+<header class="masthead">
+  <div class="mast-row">
+    <div class="mast-brand">
+      <div class="mast-mark"></div>
+      <div class="mast-title">Eightfold Design</div>
+    </div>
+    <div class="mast-meta">Internal · v1.0 · Design Org</div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-eyebrow">The Video Storytelling Playbook</div>
+  <h1>Show the work,<br/><em>not the software.</em></h1>
+  <p class="hero-deck">A shared standard for how Eightfold tells product stories on film — for Cultivate, launches, and every moment in between. Outcome-led. Human-first. AI as the quiet engine, never the headline.</p>
+
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <div class="label">Audience</div>
+      <div class="value">Design, Product, Marketing</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="label">Use For</div>
+      <div class="value">Cultivate, Launch, GTM Films</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="label">Target Length</div>
+      <div class="value">60–120 seconds</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="label">Owner</div>
+      <div class="value">VP of Design</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NORTH STAR ============ -->
+<section class="north-star">
+  <div class="ns-inner">
+    <div class="ns-eyebrow">— North Star</div>
+    <p class="ns-quote">If we removed the UI, would the <span class="accent">story still make sense?</span></p>
+    <div class="ns-byline">The single test that governs every video we make.</div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 01 — PRINCIPLES ============ -->
+<section class="chapter" id="principles">
+  <div class="ch-header">
+    <div class="ch-num">01<span class="slash">/</span>06</div>
+    <div>
+      <h2 class="ch-title">Three principles.<br/><em>Non-negotiable.</em></h2>
+      <p class="ch-deck">Most playbooks have ten rules nobody remembers. Ours has three, ranked. The first one is the one we forget first under deadline.</p>
+    </div>
+  </div>
+
+  <div class="principles">
+    <div class="principle featured">
+      <div class="p-num">PRINCIPLE 01</div>
+      <h3 class="p-title">The <em>human moment</em> is non-optional.</h3>
+      <p class="p-body">Every Eightfold video must contain at least one moment of empathy — a candidate taking a break, a recruiter being shielded from noise, a manager being given clarity. This is what separates our category POV from Workday, SAP, and the rest. It is the thing that makes the work feel <em>designed</em>, not just built.</p>
+      <div class="p-rule">→ Show the pause, the help, the relief. One per film, minimum.</div>
+    </div>
+
+    <div class="principle">
+      <div class="p-num">PRINCIPLE 02</div>
+      <h3 class="p-title">AI is <em>felt,</em> not seen.</h3>
+      <p class="p-body">Every competitor is making "look how smart our AI is" videos right now. Our differentiation is the opposite: AI disappears into the workflow. Show the lift, not the model. Show what changes for the human, not what's happening in the system. The hero is always the person, never the algorithm.</p>
+      <div class="p-rule">→ If the AI is on screen more than the human, restart.</div>
+    </div>
+
+    <div class="principle">
+      <div class="p-num">PRINCIPLE 03</div>
+      <h3 class="p-title">One outcome.<br/><em>One story.</em></h3>
+      <p class="p-body">The fastest way to ruin a product film is to demonstrate everything the product can do. Pick one outcome. Tell one journey. Resist every instinct to add "and it also does X." Feature breadth belongs in datasheets — not in the film that has 90 seconds to make someone feel something.</p>
+      <div class="p-rule">→ One persona, one journey, one takeaway.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 02 — STEP ZERO ============ -->
+<section class="chapter">
+  <div class="ch-header">
+    <div class="ch-num">02<span class="slash">/</span>06</div>
+    <div>
+      <h2 class="ch-title">Before you write<br/>a single line.</h2>
+      <p class="ch-deck">Two questions must be answered before any script begins. They are the difference between a film that feels designed and one that feels assembled.</p>
+    </div>
+  </div>
+
+  <div class="zero-grid">
+    <div class="zero-card">
+      <div class="label">— Step 0.1</div>
+      <h3>Name the one person.</h3>
+      <p>Not "users." Not "customers." Not "the TA team." A specific Bersin segment with a specific job to be done. Talent Acquisition leader at a 5,000-person enterprise drowning in unqualified applications. Hiring manager who sees twenty resumes a week and trusts none of them. CHRO who needs to defend an AI decision to a board.</p>
+      <p>If you can describe them in one sentence, you can write for them. If you can't, the script will drift.</p>
+      <div class="gate">
+        <strong>GATE:</strong> Persona on the page in one sentence, or stop.
+      </div>
+    </div>
+
+    <div class="zero-card">
+      <div class="label">— Step 0.2</div>
+      <h3>Design the cold open.</h3>
+      <p>The first three seconds determine whether anyone watches the next eighty-seven. A logo card, a title slate, a slow zoom into a dashboard — these are how you lose the room before you've spoken. Open inside the human's world: their inbox at 7am, the stack of resumes, the meeting they're dreading.</p>
+      <p>The opening frame is the thesis. Treat it that way.</p>
+      <div class="gate">
+        <strong>GATE:</strong> Frame one is a moment, not a logo.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 03 — STORY BEATS ============ -->
+<section class="chapter">
+  <div class="ch-header">
+    <div class="ch-num">03<span class="slash">/</span>06</div>
+    <div>
+      <h2 class="ch-title">The seven beats<br/>of an Eightfold film.</h2>
+      <p class="ch-deck">Every video follows this spine. The middle beat — the experience story — is where most films live or die. Spend it on one journey, deeply. Not five journeys, shallowly.</p>
+    </div>
+  </div>
+
+  <div class="beats">
+    <div class="beat">
+      <div class="beat-marker">
+        BEAT 01
+        <span class="seconds">~10 seconds</span>
+      </div>
+      <div class="beat-content">
+        <h4>The <em>tension.</em></h4>
+        <div class="purpose">Set context inside the human's day</div>
+        <p>Open in the world as it is. Not chaos for chaos's sake — a recognizable, specific moment of friction. The thing this person is tired of doing.</p>
+      </div>
+      <div class="beat-example">
+        <div class="ex-label">Script template</div>
+        <div class="script">"Every Monday, [persona] opens [tool] to find [recognizable problem]."</div>
+      </div>
+    </div>
+
+    <div class="beat">
+      <div class="beat-marker">
+        BEAT 02
+        <span class="seconds">~7 seconds</span>
+      </div>
+      <div class="beat-content">
+        <h4>The <em>shift.</em></h4>
+        <div class="purpose">Open the door — create curiosity</div>
+        <p>Pivot from "this is how it is" to "this is how it could be." A visual collapse, a simplification, a moment of suggestion. Don't reveal the product yet.</p>
+      </div>
+      <div class="beat-example">
+        <div class="ex-label">Script template</div>
+        <div class="script">"What if the work itself got easier — not the workaround?"</div>
+      </div>
+    </div>
+
+    <div class="beat">
+      <div class="beat-marker">
+        BEAT 03
+        <span class="seconds">~5 seconds</span>
+      </div>
+      <div class="beat-content">
+        <h4>The <em>introduction.</em></h4>
+        <div class="purpose">Name the product. Cleanly.</div>
+        <p>One bold reveal. No tagline soup. The product name, and one line that frames it as a category move — never a feature dump.</p>
+      </div>
+      <div class="beat-example">
+        <div class="ex-label">Script template</div>
+        <div class="script">"This is [Product]. The [category] reimagined for [outcome]."</div>
+      </div>
+    </div>
+
+    <div class="beat feature">
+      <div class="beat-marker">
+        BEAT 04
+        <span class="seconds">~45 seconds · the heart</span>
+      </div>
+      <div class="beat-content">
+        <h4>The <em>journey.</em></h4>
+        <div class="purpose">One person, one path, end-to-end</div>
+        <p>The film lives or dies here. Pick one user. Pick one job. Walk it from entry to completion in three to four steps maximum. Seamless transitions. No tab-switching narration. <strong>This is where the human moment lands</strong> — the pause, the guidance, the moment of relief.</p>
+      </div>
+      <div class="beat-example">
+        <div class="ex-label">Beat structure</div>
+        <div class="script">Entry → Onboarding → Core action → <strong>Human moment</strong> → Completion</div>
+      </div>
+    </div>
+
+    <div class="beat">
+      <div class="beat-marker">
+        BEAT 05
+        <span class="seconds">~12 seconds</span>
+      </div>
+      <div class="beat-content">
+        <h4>The <em>quiet engine.</em></h4>
+        <div class="purpose">Show AI doing the lifting — subtly</div>
+        <p>This is where most competitors get loud. We get quiet. A subtle visual of scoring, summarizing, ranking — happening in the background while the human stays the focus.</p>
+      </div>
+      <div class="beat-example">
+        <div class="ex-label">Script template</div>
+        <div class="script">"Behind the scenes, [system] handles [hard thing] — so [persona] doesn't have to."</div>
+      </div>
+    </div>
+
+    <div class="beat">
+      <div class="beat-marker">
+        BEAT 06
+        <span class="seconds">~18 seconds</span>
+      </div>
+      <div class="beat-content">
+        <h4>The <em>outcome.</em></h4>
+        <div class="purpose">Translate experience into value</div>
+        <p>Compress time. Show before and after. Three outcome words, max. Faster. Clearer. Truer. Resist the urge to list every benefit — pick the one that lands hardest for this persona.</p>
+      </div>
+      <div class="beat-example">
+        <div class="ex-label">Script template</div>
+        <div class="script">"What used to take [X] now takes [Y]. And the work is better."</div>
+      </div>
+    </div>
+
+    <div class="beat">
+      <div class="beat-marker">
+        BEAT 07
+        <span class="seconds">~5 seconds</span>
+      </div>
+      <div class="beat-content">
+        <h4>The <em>landing.</em></h4>
+        <div class="purpose">Memorable. Forward-looking. Earned.</div>
+        <p>One line that elevates the product into a category statement. Not a slogan — a thesis. Land it on a still frame, not a logo animation.</p>
+      </div>
+      <div class="beat-example">
+        <div class="ex-label">Script template</div>
+        <div class="script">"This isn't just [product]. It's a new way to [verb the category]."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 04 — VISUAL & TONE RULES ============ -->
+<section class="chapter">
+  <div class="ch-header">
+    <div class="ch-num">04<span class="slash">/</span>06</div>
+    <div>
+      <h2 class="ch-title">How it should<br/><em>look and sound.</em></h2>
+      <p class="ch-deck">Visual restraint and language restraint are the same discipline. Both come from picking one thing per scene, per sentence, and trusting it to carry the weight.</p>
+    </div>
+  </div>
+
+  <div class="dodont">
+    <div class="dodont-col do">
+      <h4>Do</h4>
+      <ul class="dodont-list">
+        <li><strong>One key moment per scene.</strong> If two things matter equally, you have two scenes.</li>
+        <li><strong>Motion that simplifies.</strong> Use animation to collapse complexity, never to add ornament.</li>
+        <li><strong>Clean, minimal UI.</strong> Real product, real data, generous whitespace.</li>
+        <li><strong>Progression you can feel.</strong> Each cut moves the human forward. No sideways scenes.</li>
+        <li><strong>Outcome language.</strong> "You see the right candidates faster."</li>
+        <li><strong>Speak from where the category is going.</strong> Position with confidence, not against incumbents.</li>
+      </ul>
+    </div>
+    <div class="dodont-col dont">
+      <h4>Don't</h4>
+      <ul class="dodont-list">
+        <li><strong>Feature stacking.</strong> "And it also does…" is the death of every film.</li>
+        <li><strong>Busy screens.</strong> If the viewer has to choose what to look at, you've already lost.</li>
+        <li><strong>Long on-screen text.</strong> If they're reading, they're not feeling.</li>
+        <li><strong>Context jumps.</strong> Tab-hopping breaks the spell. Pick one journey, stay in it.</li>
+        <li><strong>Capability language.</strong> "AI evaluates candidates using multiple signals."</li>
+        <li><strong>Anti-incumbent framing.</strong> "Current systems are broken" is a challenger move. We're not a challenger anymore.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="margin-top: 64px;">
+    <div class="ch-num" style="margin-bottom: 24px;">— LANGUAGE SHIFTS</div>
+    <div class="shifts">
+      <div class="shift">
+        <div class="shift-from">AI evaluates candidates using multiple signals</div>
+        <div class="shift-arrow">becomes →</div>
+        <div class="shift-to">You see the right candidates — faster.</div>
+      </div>
+      <div class="shift">
+        <div class="shift-from">Our platform unifies fragmented HR systems</div>
+        <div class="shift-arrow">becomes →</div>
+        <div class="shift-to">One place. One source. One decision.</div>
+      </div>
+      <div class="shift">
+        <div class="shift-from">Current talent acquisition tools are broken</div>
+        <div class="shift-arrow">becomes →</div>
+        <div class="shift-to">This is the next evolution of how teams hire.</div>
+      </div>
+      <div class="shift">
+        <div class="shift-from">Leverage advanced ML to screen at scale</div>
+        <div class="shift-arrow">becomes →</div>
+        <div class="shift-to">Trust the shortlist. Spend time where it matters.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 05 — COMPRESSION TEST ============ -->
+<section class="chapter">
+  <div class="ch-header">
+    <div class="ch-num">05<span class="slash">/</span>06</div>
+    <div>
+      <h2 class="ch-title">The thirty-second<br/><em>compression test.</em></h2>
+      <p class="ch-deck">Before any script gets approved, it has to pass this. If you can't tell the story in thirty seconds, you don't have a story yet — you have a list of features wearing a costume.</p>
+    </div>
+  </div>
+
+  <div class="compression">
+    <div class="timer-card">
+      <div class="timer-num">30</div>
+      <div class="timer-unit">Seconds. Out loud. No edits.</div>
+    </div>
+    <div class="compression-text">
+      <h3>Tell the whole film in one breath.</h3>
+      <p>Pull up the script. Read the story aloud — not the bullets, the actual narrative arc. Time yourself. Thirty seconds, max.</p>
+      <p>If you can't, one of three things is true: you're telling more than one story, you don't know which outcome leads, or your AI is the protagonist when it should be the supporting cast.</p>
+      <p>This test is not optional. Every reviewer should ask for it. Every writer should have it ready.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 06 — THE GATE ============ -->
+<section class="chapter" style="border-bottom: none; padding-bottom: 0;">
+  <div class="ch-header">
+    <div class="ch-num">06<span class="slash">/</span>06</div>
+    <div>
+      <h2 class="ch-title">Three gates.<br/><em>Pass all three.</em></h2>
+      <p class="ch-deck">Before any video ships, it must pass these three checks. Not seven. Not twelve. Three. If it fails one, it goes back — no exceptions, no compromise on deadline.</p>
+    </div>
+  </div>
+
+  <div class="gate-section">
+    <div class="gate-inner">
+      <div class="gate-items">
+        <div class="gate-item">
+          <div class="gate-num">1</div>
+          <h4>One outcome,<br/>one story.</h4>
+          <p>Can a non-product person describe the film in a single sentence? If they list two things, the film is two films. Send it back.</p>
+        </div>
+        <div class="gate-item">
+          <div class="gate-num">2</div>
+          <h4>One human<br/>moment.</h4>
+          <p>Find the moment of empathy on the timeline. Point to it. If you can't point to it, it isn't there. Add it before approval.</p>
+        </div>
+        <div class="gate-item">
+          <div class="gate-num">3</div>
+          <h4>AI as support,<br/>not subject.</h4>
+          <p>Count seconds where the human is on screen vs. seconds where the system is. The human should win, decisively. If not, recut.</p>
+        </div>
+      </div>
+
+      <div class="gate-fail">
+        <strong>FAIL ANY ONE → BACK TO THE WRITER, NOT FORWARD TO PRODUCTION.</strong><br/>
+        Craft is the gate. Polish is craft. We don't approve videos that need to be "fixed in editing."
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FORMULA ============ -->
+<section class="formula">
+  <div class="formula-eyebrow">— Team Memory Hook</div>
+  <p class="formula-line">
+    Show the <em>tension.</em><span class="pipe">|</span>
+    Show the <em>shift.</em><span class="pipe">|</span>
+    Show <em>one human story.</em><span class="pipe">|</span>
+    Land the <em>value.</em>
+  </p>
+</section>
+
+<!-- ============ COLOPHON ============ -->
+<footer class="colophon">
+  <div class="colo-inner">
+    <div class="colo-block">
+      <div class="label">— On this document</div>
+      <p>This playbook is the standard for all Eightfold product films — Cultivate, launch, GTM. It supersedes prior video guidance. Updates are versioned and announced via the Design org.</p>
+    </div>
+    <div class="colo-block">
+      <div class="label">— How to use it</div>
+      <p>Read it once. Reference Chapter 06 (the three gates) before every approval. Reference Chapter 03 (the seven beats) before every script. Print Chapter 04 and pin it above your desk.</p>
+    </div>
+    <div class="colo-block">
+      <div class="label">— Brand palette</div>
+      <p>Sourced directly from eightfold.ai: Core Navy, Eightfold Teal, Smart Orange, Electric Blue, Quantum Indigo, Agentic Purple, Deep Magenta, Fusion Gold.</p>
+      <div class="palette-strip" aria-hidden="true">
+        <span style="background:#191841"></span>
+        <span style="background:#88E2D2"></span>
+        <span style="background:#36D6AB"></span>
+        <span style="background:#EB5854"></span>
+        <span style="background:#F8A456"></span>
+        <span style="background:#0708EE"></span>
+        <span style="background:#5741DC"></span>
+        <span style="background:#AF4FED"></span>
+        <span style="background:#A1378B"></span>
+        <span style="background:#DC3FB6"></span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
