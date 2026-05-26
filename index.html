@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Eightfold Video Storytelling Playbook</title>
+<title>Eightfold Design Concept Video Playbook</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -319,6 +319,123 @@
     color: var(--ink-soft);
     max-width: 720px;
     margin-top: 24px;
+  }
+
+  /* ============ SCOPE TABLE (Chapter 00) ============ */
+  .scope-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .scope-table th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: left;
+    padding: 18px 24px 18px 0;
+    border-bottom: 1px solid var(--rule);
+    font-weight: 400;
+  }
+
+  .scope-table td {
+    padding: 24px 24px 24px 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: baseline;
+  }
+
+  .scope-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .scope-table .type {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    width: 28%;
+  }
+
+  .scope-table .question {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--ink-soft);
+    line-height: 1.4;
+    width: 44%;
+  }
+
+  .scope-table .verdict {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    width: 28%;
+    text-align: right;
+    white-space: nowrap;
+    padding-right: 0;
+  }
+
+  .scope-table .verdict.yes { color: var(--teal-bright); }
+  .scope-table .verdict.no { color: var(--smart-orange); }
+  .scope-table .verdict.maybe { color: var(--fusion-gold); }
+
+  .scope-table tr.out .type,
+  .scope-table tr.out .question {
+    text-decoration: line-through;
+    text-decoration-color: var(--smart-orange);
+    text-decoration-thickness: 1px;
+    color: var(--muted);
+  }
+
+  .scope-gate {
+    margin-top: 56px;
+    padding: 28px 32px;
+    background: var(--core-navy);
+    color: var(--paper);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+    position: relative;
+    overflow: hidden;
+  }
+  .scope-gate::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: var(--eightfold-teal);
+  }
+  .scope-gate strong {
+    color: var(--eightfold-teal);
+    font-weight: 500;
+  }
+
+  .scope-fork {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .scope-fork p {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    max-width: 760px;
+    margin-top: 16px;
+  }
+
+  .scope-fork strong {
+    color: var(--ink);
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 500;
   }
 
   /* ============ PRINCIPLES ============ */
@@ -769,6 +886,52 @@
     font-weight: 500;
   }
 
+  /* ============ RACI (Chapter 07) ============ */
+  .raci {
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px dashed var(--rule);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 16px;
+  }
+
+  .raci-row {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    line-height: 1.35;
+  }
+
+  .raci-tag {
+    display: inline-flex;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--core-navy);
+    color: var(--paper);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .lifecycle-sub {
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .lifecycle-sub > .ch-num {
+    margin-bottom: 24px;
+  }
+
   /* ============ COMPRESSION TEST ============ */
   .compression {
     display: grid;
@@ -947,6 +1110,11 @@
     .compression { grid-template-columns: 1fr; gap: 32px; }
     .timer-num { font-size: 96px; }
     .colo-inner { grid-template-columns: 1fr; gap: 24px; }
+    .scope-table thead { display: none; }
+    .scope-table tr { display: block; padding: 20px 0; border-bottom: 1px solid var(--rule); }
+    .scope-table tr:last-child { border-bottom: none; }
+    .scope-table td { display: block; width: 100% !important; padding: 4px 0; border-bottom: none; text-align: left !important; white-space: normal; }
+    .scope-table .verdict { margin-top: 8px; }
   }
 </style>
 </head>
@@ -965,26 +1133,26 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero">
-  <div class="hero-eyebrow">The Video Storytelling Playbook</div>
-  <h1>Show the work,<br/><em>not the software.</em></h1>
-  <p class="hero-deck">A shared standard for how Eightfold tells product stories on film — for Cultivate, launches, and every moment in between. Outcome-led. Human-first. AI as the quiet engine, never the headline.</p>
+  <div class="hero-eyebrow">The Design Concept Video Playbook</div>
+  <h1>Show the thinking.<br/><em>Make it land.</em></h1>
+  <p class="hero-deck">A shared standard for the videos design ships as its <em>deliverable</em> — the videos we make to align leadership, finalize concepts, and explore what could exist. Internal-first. Honest about fidelity. If a video needs to go public, Marketing adapts it from here. We ship the concept; they ship the polish.</p>
 
   <div class="hero-meta">
     <div class="hero-meta-item">
-      <div class="label">Audience</div>
-      <div class="value">Design, Product, Marketing</div>
-    </div>
-    <div class="hero-meta-item">
       <div class="label">Use For</div>
-      <div class="value">Cultivate, Launch, GTM Films</div>
+      <div class="value">Concept finalization · Vision exploration · Internal alignment</div>
     </div>
     <div class="hero-meta-item">
-      <div class="label">Target Length</div>
-      <div class="value">60–120 seconds</div>
+      <div class="label">Produced By</div>
+      <div class="value">Product + Design</div>
     </div>
     <div class="hero-meta-item">
-      <div class="label">Owner</div>
-      <div class="value">VP of Design</div>
+      <div class="label">Reviewed By</div>
+      <div class="value">Leadership → Marketing for public</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="label">Length</div>
+      <div class="value">3–5 minutes</div>
     </div>
   </div>
 </section>
@@ -993,41 +1161,110 @@
 <section class="north-star">
   <div class="ns-inner">
     <div class="ns-eyebrow">— North Star</div>
-    <p class="ns-quote">If we removed the UI, would the <span class="accent">story still make sense?</span></p>
-    <div class="ns-byline">The single test that governs every video we make.</div>
+    <p class="ns-quote">After one watch, could a stakeholder <span class="accent">repeat the concept back to you?</span></p>
+    <div class="ns-byline">The single test that governs every concept video we ship.</div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 00 — SCOPE GATE ============ -->
+<section class="chapter" id="scope">
+  <div class="ch-header">
+    <div class="ch-num">00<span class="slash">/</span>07</div>
+    <div>
+      <h2 class="ch-title">What is the <em>job</em><br/>of this video?</h2>
+      <p class="ch-deck">Before any audience, before any storyboard, before any screen recording — name what this video is for. The rules in this playbook are tuned for design's concept videos. Apply them to a marketing video or a sales demo and you'll make those worse, not better.</p>
+    </div>
+  </div>
+
+  <table class="scope-table">
+    <thead>
+      <tr>
+        <th class="type">Video type</th>
+        <th class="question">Primary question it answers</th>
+        <th class="verdict">This playbook?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="type">Concept finalization</td>
+        <td class="question">"Is this the design we're building?"</td>
+        <td class="verdict yes">Yes — apply fully</td>
+      </tr>
+      <tr>
+        <td class="type">Vision exploration</td>
+        <td class="question">"What could this become?"</td>
+        <td class="verdict yes">Yes — same spine, more concept UI</td>
+      </tr>
+      <tr>
+        <td class="type">Internal design pitch</td>
+        <td class="question">"Why should we invest in this?"</td>
+        <td class="verdict yes">Yes — sharpen the ask</td>
+      </tr>
+      <tr class="out">
+        <td class="type">Marketing video</td>
+        <td class="question">"Why should I care?"</td>
+        <td class="verdict no">No — Marketing adapts from ours</td>
+      </tr>
+      <tr class="out">
+        <td class="type">Sales / product demo</td>
+        <td class="question">"How does this actually work?"</td>
+        <td class="verdict no">No — owned by Sales/Product</td>
+      </tr>
+      <tr class="out">
+        <td class="type">Customer story</td>
+        <td class="question">"Has this worked for someone like me?"</td>
+        <td class="verdict no">No — interview-led</td>
+      </tr>
+      <tr class="out">
+        <td class="type">Explainer</td>
+        <td class="question">"Can you help me understand this concept?"</td>
+        <td class="verdict no">No — concept-led, not design-led</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="scope-gate">
+    <strong>GATE:</strong> If this isn't a design concept video, stop reading. Marketing videos are made by Marketing — often <em>from</em> one of ours (see Chapter 07). Sales demos are owned by Sales. Each format has its own playbook and its own rules; ours will make them worse.
+  </div>
+
+  <div class="scope-fork">
+    <div class="ch-num">— TWO MODES INSIDE THE SCOPE</div>
+    <p><strong>Concept finalization</strong> sells what's about to ship. Higher real-UI ratio. The ask is usually engineering capacity, prioritization, or sign-off. <strong>Vision exploration</strong> sells what could exist. Concept UI throughout. The ask is alignment, funding, or appetite for the exploration. Same seven-beat spine; different fidelity, different ask.</p>
+    <p style="margin-top: 16px;"><strong>Shown to customers?</strong> Sometimes — as a <em>thinking artifact</em> in initial discovery conversations, never as a roadmap commitment. Frame verbally before playing ("here's how design is thinking about this"). Keep the concept chyron visible. Never hand off the file — Marketing handles any external distribution.</p>
+    <p style="margin-top: 16px;"><strong>Upgrade path.</strong> A concept video can graduate to a sales-grade demo video — after Leadership reviews and approves. <em>Cultivate</em> is the canonical example: what starts as design-led storytelling becomes the demo the Sales team takes to customers. The video doesn't change; the audience does. See Chapter 07.</p>
   </div>
 </section>
 
 <!-- ============ CHAPTER 01 — PRINCIPLES ============ -->
 <section class="chapter" id="principles">
   <div class="ch-header">
-    <div class="ch-num">01<span class="slash">/</span>06</div>
+    <div class="ch-num">01<span class="slash">/</span>07</div>
     <div>
       <h2 class="ch-title">Three principles.<br/><em>Non-negotiable.</em></h2>
-      <p class="ch-deck">Most playbooks have ten rules nobody remembers. Ours has three, ranked. The first one is the one we forget first under deadline.</p>
+      <p class="ch-deck">Most playbooks have ten rules nobody remembers. Ours has three, ranked. The first one is the one we break first under deadline pressure.</p>
     </div>
   </div>
 
   <div class="principles">
     <div class="principle featured">
       <div class="p-num">PRINCIPLE 01</div>
-      <h3 class="p-title">The <em>human moment</em> is non-optional.</h3>
-      <p class="p-body">Every Eightfold video must contain at least one moment of empathy — a candidate taking a break, a recruiter being shielded from noise, a manager being given clarity. This is what separates our category POV from Workday, SAP, and the rest. It is the thing that makes the work feel <em>designed</em>, not just built.</p>
-      <div class="p-rule">→ Show the pause, the help, the relief. One per film, minimum.</div>
+      <h3 class="p-title">One <em>idea.</em><br/>One journey.</h3>
+      <p class="p-body">The fastest way to lose the room is to pitch three concepts in one video. Pick the one the audience needs to see. Walk it end-to-end. Resist every instinct to add "and it also does X" — adjacent ideas dilute the central one, and the decision you came in for becomes a debate you didn't plan for.</p>
+      <div class="p-rule">→ If the audience can't repeat the concept back in one sentence, the video has more than one concept in it.</div>
     </div>
 
     <div class="principle">
       <div class="p-num">PRINCIPLE 02</div>
-      <h3 class="p-title">AI is <em>felt,</em> not seen.</h3>
-      <p class="p-body">Every competitor is making "look how smart our AI is" videos right now. Our differentiation is the opposite: AI disappears into the workflow. Show the lift, not the model. Show what changes for the human, not what's happening in the system. The hero is always the person, never the algorithm.</p>
-      <div class="p-rule">→ If the AI is on screen more than the human, restart.</div>
+      <h3 class="p-title">Honest about <em>fidelity.</em></h3>
+      <p class="p-body">Concept videos legitimately mix shipping UI with prototype frames and pure vision. That's the point — design's job is to make the future tangible before it's built. But every frame must be honestly labeled. The fastest way to burn internal credibility is to imply something ships when it doesn't, or to imply something's a sketch when it's already in production.</p>
+      <div class="p-rule">→ "Shipping" · "In build" · "Concept" · "Vision" — pick the chyron, keep it visible.</div>
     </div>
 
     <div class="principle">
       <div class="p-num">PRINCIPLE 03</div>
-      <h3 class="p-title">One outcome.<br/><em>One story.</em></h3>
-      <p class="p-body">The fastest way to ruin a product film is to demonstrate everything the product can do. Pick one outcome. Tell one journey. Resist every instinct to add "and it also does X." Feature breadth belongs in datasheets — not in the film that has 90 seconds to make someone feel something.</p>
-      <div class="p-rule">→ One persona, one journey, one takeaway.</div>
+      <h3 class="p-title">Designed enough to <em>elevate.</em></h3>
+      <p class="p-body">Polish is the point. A concept video should pull the room's conversation up to the idea, not down to the fidelity. If stakeholders are critiquing the typography, the typography is doing too little to disappear. If they're arguing about the concept, the video is working. The craft is invisible when it's right.</p>
+      <div class="p-rule">→ If the feedback is about the polish, the polish isn't carrying the idea.</div>
     </div>
   </div>
 </section>
@@ -1035,31 +1272,31 @@
 <!-- ============ CHAPTER 02 — STEP ZERO ============ -->
 <section class="chapter">
   <div class="ch-header">
-    <div class="ch-num">02<span class="slash">/</span>06</div>
+    <div class="ch-num">02<span class="slash">/</span>07</div>
     <div>
-      <h2 class="ch-title">Before you write<br/>a single line.</h2>
-      <p class="ch-deck">Two questions must be answered before any script begins. They are the difference between a film that feels designed and one that feels assembled.</p>
+      <h2 class="ch-title">Before you open<br/>the storyboard.</h2>
+      <p class="ch-deck">Two questions must be answered before any script begins. They are the difference between a concept video that lands a decision and one that becomes a meeting unto itself.</p>
     </div>
   </div>
 
   <div class="zero-grid">
     <div class="zero-card">
       <div class="label">— Step 0.1</div>
-      <h3>Name the one person.</h3>
-      <p>Not "users." Not "customers." Not "the TA team." A specific Bersin segment with a specific job to be done. Talent Acquisition leader at a 5,000-person enterprise drowning in unqualified applications. Hiring manager who sees twenty resumes a week and trusts none of them. CHRO who needs to defend an AI decision to a board.</p>
-      <p>If you can describe them in one sentence, you can write for them. If you can't, the script will drift.</p>
+      <h3>Name the room.</h3>
+      <p>Not "leadership." Not "the team." A specific group with a specific decision to make. <em>The CPO and engineering leads who need to greenlight Q3 capacity.</em> <em>The exec staff who are deciding whether to invest in this category at all.</em> <em>A target customer who's evaluating us against a competitor and needs to see we're thinking three steps ahead.</em></p>
+      <p>If you can describe the room in one sentence, you can pitch into it. If you can't, the video will pitch to no one in particular — and land nowhere.</p>
       <div class="gate">
-        <strong>GATE:</strong> Persona on the page in one sentence, or stop.
+        <strong>GATE:</strong> Room on the page in one sentence, or stop.
       </div>
     </div>
 
     <div class="zero-card">
       <div class="label">— Step 0.2</div>
-      <h3>Design the cold open.</h3>
-      <p>The first three seconds determine whether anyone watches the next eighty-seven. A logo card, a title slate, a slow zoom into a dashboard — these are how you lose the room before you've spoken. Open inside the human's world: their inbox at 7am, the stack of resumes, the meeting they're dreading.</p>
-      <p>The opening frame is the thesis. Treat it that way.</p>
+      <h3>Name the ask.</h3>
+      <p>Not "feedback." Not "alignment." A specific action you want the room to take after watching. <em>Approve this concept for build in the next sprint.</em> <em>Commit two engineers for an eight-week prototype.</em> <em>Endorse this direction at next week's board meeting.</em></p>
+      <p>The ask shapes everything: the length, the fidelity, the language, the final beat. A concept video without an ask is a sketch with sound — engaging, but it won't move anything.</p>
       <div class="gate">
-        <strong>GATE:</strong> Frame one is a moment, not a logo.
+        <strong>GATE:</strong> One ask, named in one sentence with a verb in it, or stop.
       </div>
     </div>
   </div>
@@ -1068,10 +1305,10 @@
 <!-- ============ CHAPTER 03 — STORY BEATS ============ -->
 <section class="chapter">
   <div class="ch-header">
-    <div class="ch-num">03<span class="slash">/</span>06</div>
+    <div class="ch-num">03<span class="slash">/</span>07</div>
     <div>
-      <h2 class="ch-title">The seven beats<br/>of an Eightfold film.</h2>
-      <p class="ch-deck">Every video follows this spine. The middle beat — the experience story — is where most films live or die. Spend it on one journey, deeply. Not five journeys, shallowly.</p>
+      <h2 class="ch-title">The seven beats<br/>of a concept video.</h2>
+      <p class="ch-deck">Every design concept video follows this spine. The middle beat — the experience — is where the concept gets made tangible. Spend it on one journey, deeply. Mix real and concept UI freely, but label every frame.</p>
     </div>
   </div>
 
@@ -1079,112 +1316,112 @@
     <div class="beat">
       <div class="beat-marker">
         BEAT 01
-        <span class="seconds">~10 seconds</span>
+        <span class="seconds">~25 seconds</span>
       </div>
       <div class="beat-content">
-        <h4>The <em>tension.</em></h4>
-        <div class="purpose">Set context inside the human's day</div>
-        <p>Open in the world as it is. Not chaos for chaos's sake — a recognizable, specific moment of friction. The thing this person is tired of doing.</p>
+        <h4>The <em>opportunity.</em></h4>
+        <div class="purpose">Why this matters now</div>
+        <p>Open in the specific friction or possibility the concept addresses. Not chaos, not generalities — a named gap in how things work today, or a named shift in the category that opens a door. The room needs to feel the stakes before they evaluate the answer.</p>
       </div>
       <div class="beat-example">
         <div class="ex-label">Script template</div>
-        <div class="script">"Every Monday, [persona] opens [tool] to find [recognizable problem]."</div>
+        <div class="script">"Today, [persona] spends [N hours] doing [task] manually — and the AI we already shipped can do most of it. The question is what the next layer looks like."</div>
       </div>
     </div>
 
     <div class="beat">
       <div class="beat-marker">
         BEAT 02
-        <span class="seconds">~7 seconds</span>
+        <span class="seconds">~25 seconds</span>
       </div>
       <div class="beat-content">
-        <h4>The <em>shift.</em></h4>
-        <div class="purpose">Open the door — create curiosity</div>
-        <p>Pivot from "this is how it is" to "this is how it could be." A visual collapse, a simplification, a moment of suggestion. Don't reveal the product yet.</p>
+        <h4>The <em>thinking.</em></h4>
+        <div class="purpose">The point of view behind the concept</div>
+        <p>Name the design POV. The principle, the framing, the bet the concept rests on. This is the most-skipped beat — and the one that earns the right to be wrong about specifics. If the room buys the thinking, the details become collaborative.</p>
       </div>
       <div class="beat-example">
         <div class="ex-label">Script template</div>
-        <div class="script">"What if the work itself got easier — not the workaround?"</div>
+        <div class="script">"We started from one principle: [POV]. If that's right, then the experience needs to [behavior] — not [common assumption]."</div>
       </div>
     </div>
 
     <div class="beat">
       <div class="beat-marker">
         BEAT 03
-        <span class="seconds">~5 seconds</span>
+        <span class="seconds">~20 seconds</span>
       </div>
       <div class="beat-content">
-        <h4>The <em>introduction.</em></h4>
-        <div class="purpose">Name the product. Cleanly.</div>
-        <p>One bold reveal. No tagline soup. The product name, and one line that frames it as a category move — never a feature dump.</p>
+        <h4>The <em>concept reveal.</em></h4>
+        <div class="purpose">Name it. Cleanly.</div>
+        <p>One frame that introduces the concept. Give it a name the room can use after the meeting ends. Concepts that don't get named don't get talked about.</p>
       </div>
       <div class="beat-example">
         <div class="ex-label">Script template</div>
-        <div class="script">"This is [Product]. The [category] reimagined for [outcome]."</div>
+        <div class="script">"We're calling it [name]. The idea is [one-line description] — here's what it feels like."</div>
       </div>
     </div>
 
     <div class="beat feature">
       <div class="beat-marker">
         BEAT 04
-        <span class="seconds">~45 seconds · the heart</span>
+        <span class="seconds">~2 minutes · the experience</span>
       </div>
       <div class="beat-content">
         <h4>The <em>journey.</em></h4>
         <div class="purpose">One person, one path, end-to-end</div>
-        <p>The film lives or dies here. Pick one user. Pick one job. Walk it from entry to completion in three to four steps maximum. Seamless transitions. No tab-switching narration. <strong>This is where the human moment lands</strong> — the pause, the guidance, the moment of relief.</p>
+        <p>The video lives or dies here. Pick one user. Pick one moment in their work. Walk it through the concept end-to-end. <strong>Real UI where it exists; concept UI where it doesn't; vision frames where neither does.</strong> Every frame labeled. The labeling is the trust contract — break it once and the rest of the video pays for it.</p>
       </div>
       <div class="beat-example">
         <div class="ex-label">Beat structure</div>
-        <div class="script">Entry → Onboarding → Core action → <strong>Human moment</strong> → Completion</div>
+        <div class="script">Entry → Action → <strong>Designed moment</strong> → Result · (every frame labeled real / concept / vision)</div>
       </div>
     </div>
 
     <div class="beat">
       <div class="beat-marker">
         BEAT 05
-        <span class="seconds">~12 seconds</span>
+        <span class="seconds">~30 seconds</span>
       </div>
       <div class="beat-content">
-        <h4>The <em>quiet engine.</em></h4>
-        <div class="purpose">Show AI doing the lifting — subtly</div>
-        <p>This is where most competitors get loud. We get quiet. A subtle visual of scoring, summarizing, ranking — happening in the background while the human stays the focus.</p>
+        <h4>The <em>intelligence.</em></h4>
+        <div class="purpose">How the AI behaves in this concept</div>
+        <p>Show the AI's role honestly — what's autonomous, what's assisted, where the human stays in the loop. Don't hide it (the room is evaluating it). Don't oversell it (the room will believe you, then hold you to it). Designed AI behavior is a feature; show the design.</p>
       </div>
       <div class="beat-example">
         <div class="ex-label">Script template</div>
-        <div class="script">"Behind the scenes, [system] handles [hard thing] — so [persona] doesn't have to."</div>
+        <div class="script">"The system handles [X] autonomously. [Persona] stays in control of [Y]. Here's the handoff moment — that's where the design choice is."</div>
       </div>
     </div>
 
     <div class="beat">
       <div class="beat-marker">
         BEAT 06
-        <span class="seconds">~18 seconds</span>
+        <span class="seconds">~25 seconds</span>
       </div>
       <div class="beat-content">
-        <h4>The <em>outcome.</em></h4>
-        <div class="purpose">Translate experience into value</div>
-        <p>Compress time. Show before and after. Three outcome words, max. Faster. Clearer. Truer. Resist the urge to list every benefit — pick the one that lands hardest for this persona.</p>
+        <h4>The <em>unlock.</em></h4>
+        <div class="purpose">What this enables that wasn't possible before</div>
+        <p>Land the consequence of the concept. Not a list of features — the new thing the user (or the business, or the category) can do because this exists. Compress time; show the delta; let the unlock be the argument for the ask.</p>
       </div>
       <div class="beat-example">
         <div class="ex-label">Script template</div>
-        <div class="script">"What used to take [X] now takes [Y]. And the work is better."</div>
+        <div class="script">"With this in place, [persona] can [new behavior] — which means [business consequence]. That's what we couldn't do before."</div>
       </div>
     </div>
 
     <div class="beat">
       <div class="beat-marker">
         BEAT 07
-        <span class="seconds">~5 seconds</span>
+        <span class="seconds">~20 seconds · the ask</span>
       </div>
       <div class="beat-content">
-        <h4>The <em>landing.</em></h4>
-        <div class="purpose">Memorable. Forward-looking. Earned.</div>
-        <p>One line that elevates the product into a category statement. Not a slogan — a thesis. Land it on a still frame, not a logo animation.</p>
+        <h4>The <em>ask.</em></h4>
+        <div class="purpose">What we need from the room to take this forward</div>
+        <p>Every internal concept video ends with an ask. Not a CTA — an ask. Name it, scope it, make it actionable in the meeting that follows. Videos that end on aesthetics waste the decision the room is ready to make.</p>
       </div>
       <div class="beat-example">
         <div class="ex-label">Script template</div>
-        <div class="script">"This isn't just [product]. It's a new way to [verb the category]."</div>
+        <div class="script">"To take this forward, we need [specific resource / decision / sign-off] by [when]. The next meeting on the calendar is the right place to commit."</div>
       </div>
     </div>
   </div>
@@ -1193,10 +1430,10 @@
 <!-- ============ CHAPTER 04 — VISUAL & TONE RULES ============ -->
 <section class="chapter">
   <div class="ch-header">
-    <div class="ch-num">04<span class="slash">/</span>06</div>
+    <div class="ch-num">04<span class="slash">/</span>07</div>
     <div>
       <h2 class="ch-title">How it should<br/><em>look and sound.</em></h2>
-      <p class="ch-deck">Visual restraint and language restraint are the same discipline. Both come from picking one thing per scene, per sentence, and trusting it to carry the weight.</p>
+      <p class="ch-deck">Concept-video restraint sits between marketing's emotional polish and a demo's UI rigor. The fidelity is the message — too rough and the room argues the visuals; too pixel-perfect and the room mistakes concept for commitment. Find the line, label every frame.</p>
     </div>
   </div>
 
@@ -1204,23 +1441,23 @@
     <div class="dodont-col do">
       <h4>Do</h4>
       <ul class="dodont-list">
-        <li><strong>One key moment per scene.</strong> If two things matter equally, you have two scenes.</li>
-        <li><strong>Motion that simplifies.</strong> Use animation to collapse complexity, never to add ornament.</li>
-        <li><strong>Clean, minimal UI.</strong> Real product, real data, generous whitespace.</li>
-        <li><strong>Progression you can feel.</strong> Each cut moves the human forward. No sideways scenes.</li>
-        <li><strong>Outcome language.</strong> "You see the right candidates faster."</li>
-        <li><strong>Speak from where the category is going.</strong> Position with confidence, not against incumbents.</li>
+        <li><strong>Label fidelity in every frame.</strong> "Shipping," "In build," "Concept," "Vision" — pick the chyron and keep it visible.</li>
+        <li><strong>Voice the design POV.</strong> Narrate the thinking, not just the action. "We chose this because..." earns more than "and then..."</li>
+        <li><strong>Designed cuts.</strong> Concept videos are allowed cinema — meaningful transitions, considered pacing, intentional silence.</li>
+        <li><strong>Real moments where possible.</strong> Anchor concept frames between real ones. The mix is what gives the concept credibility.</li>
+        <li><strong>Name the concept.</strong> Give the idea a handle the room can use after the meeting ends.</li>
+        <li><strong>Show the design seams.</strong> Where the human takes over from the AI. Where the model is uncertain. Where the user can override. The seams are the design.</li>
       </ul>
     </div>
     <div class="dodont-col dont">
       <h4>Don't</h4>
       <ul class="dodont-list">
-        <li><strong>Feature stacking.</strong> "And it also does…" is the death of every film.</li>
-        <li><strong>Busy screens.</strong> If the viewer has to choose what to look at, you've already lost.</li>
-        <li><strong>Long on-screen text.</strong> If they're reading, they're not feeling.</li>
-        <li><strong>Context jumps.</strong> Tab-hopping breaks the spell. Pick one journey, stay in it.</li>
-        <li><strong>Capability language.</strong> "AI evaluates candidates using multiple signals."</li>
-        <li><strong>Anti-incumbent framing.</strong> "Current systems are broken" is a challenger move. We're not a challenger anymore.</li>
+        <li><strong>Imply roadmap.</strong> Concept frames without labels read as commitments. One un-labeled frame can become a renegotiation.</li>
+        <li><strong>Pitch three ideas at once.</strong> Adjacent concepts collapse the central one. Pick one; spin the others off as their own videos.</li>
+        <li><strong>Over-polish the AI.</strong> Showing the model as omniscient sets internal expectations you'll have to walk back later.</li>
+        <li><strong>Skip the thinking.</strong> If you go straight to the experience without the POV, the room debates pixels instead of principles.</li>
+        <li><strong>End on aesthetics.</strong> The final frame must carry an ask. A logo and a fade is a meeting that won't decide anything.</li>
+        <li><strong>Forget the chyron.</strong> Especially if a customer might see it. One missing label is a misalignment incident waiting to happen.</li>
       </ul>
     </div>
   </div>
@@ -1229,24 +1466,51 @@
     <div class="ch-num" style="margin-bottom: 24px;">— LANGUAGE SHIFTS</div>
     <div class="shifts">
       <div class="shift">
-        <div class="shift-from">AI evaluates candidates using multiple signals</div>
+        <div class="shift-from">Here's a feature we're building</div>
         <div class="shift-arrow">becomes →</div>
-        <div class="shift-to">You see the right candidates — faster.</div>
+        <div class="shift-to">Here's the idea behind it — and what it would feel like if we got it right.</div>
       </div>
       <div class="shift">
-        <div class="shift-from">Our platform unifies fragmented HR systems</div>
+        <div class="shift-from">The AI handles this automatically</div>
         <div class="shift-arrow">becomes →</div>
-        <div class="shift-to">One place. One source. One decision.</div>
+        <div class="shift-to">The system proposes; the person decides. Here's the handoff moment — that's the design.</div>
       </div>
       <div class="shift">
-        <div class="shift-from">Current talent acquisition tools are broken</div>
+        <div class="shift-from">We need your feedback on this</div>
         <div class="shift-arrow">becomes →</div>
-        <div class="shift-to">This is the next evolution of how teams hire.</div>
+        <div class="shift-to">To take this to build, we need [specific decision] from [specific people] by [when].</div>
       </div>
       <div class="shift">
-        <div class="shift-from">Leverage advanced ML to screen at scale</div>
+        <div class="shift-from">This is what the product could look like</div>
         <div class="shift-arrow">becomes →</div>
-        <div class="shift-to">Trust the shortlist. Spend time where it matters.</div>
+        <div class="shift-to">Real today. Concept here. Vision here. Watch the chyron — the fidelity is the story.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 64px;">
+    <div class="ch-num" style="margin-bottom: 24px;">— THE FIDELITY CHYRON</div>
+    <p style="font-size: 16px; line-height: 1.65; color: var(--ink-soft); max-width: 760px; margin-bottom: 24px;">Every concept video uses one of four labels in the top-left of every frame. The label is small, persistent, and non-decorative — it's a credibility contract with the audience, not a visual flourish.</p>
+    <div class="shifts">
+      <div class="shift">
+        <div class="shift-from" style="text-decoration: none; color: var(--ink); font-style: italic;">SHIPPING</div>
+        <div class="shift-arrow">means →</div>
+        <div class="shift-to" style="font-style: normal;">In production today. Real product, real data.</div>
+      </div>
+      <div class="shift">
+        <div class="shift-from" style="text-decoration: none; color: var(--ink); font-style: italic;">IN BUILD</div>
+        <div class="shift-arrow">means →</div>
+        <div class="shift-to" style="font-style: normal;">Engineering has it. Specifics may shift; the workflow won't.</div>
+      </div>
+      <div class="shift">
+        <div class="shift-from" style="text-decoration: none; color: var(--ink); font-style: italic;">CONCEPT</div>
+        <div class="shift-arrow">means →</div>
+        <div class="shift-to" style="font-style: normal;">Design intent. Not yet committed to build. Open to iteration.</div>
+      </div>
+      <div class="shift">
+        <div class="shift-from" style="text-decoration: none; color: var(--ink); font-style: italic;">VISION</div>
+        <div class="shift-arrow">means →</div>
+        <div class="shift-to" style="font-style: normal;">Future-state thinking. No commitment implied or read.</div>
       </div>
     </div>
   </div>
@@ -1255,23 +1519,23 @@
 <!-- ============ CHAPTER 05 — COMPRESSION TEST ============ -->
 <section class="chapter">
   <div class="ch-header">
-    <div class="ch-num">05<span class="slash">/</span>06</div>
+    <div class="ch-num">05<span class="slash">/</span>07</div>
     <div>
-      <h2 class="ch-title">The thirty-second<br/><em>compression test.</em></h2>
-      <p class="ch-deck">Before any script gets approved, it has to pass this. If you can't tell the story in thirty seconds, you don't have a story yet — you have a list of features wearing a costume.</p>
+      <h2 class="ch-title">The one-watch<br/><em>playback test.</em></h2>
+      <p class="ch-deck">Before any concept video gets approved, it has to pass this. If a stakeholder can't repeat the concept back after one watch, the video has done the room a disservice — it filled time without landing an idea, and the meeting that follows will be a debate about what they think they saw.</p>
     </div>
   </div>
 
   <div class="compression">
     <div class="timer-card">
-      <div class="timer-num">30</div>
-      <div class="timer-unit">Seconds. Out loud. No edits.</div>
+      <div class="timer-num">1</div>
+      <div class="timer-unit">Watch. Then summary back. No prompting.</div>
     </div>
     <div class="compression-text">
-      <h3>Tell the whole film in one breath.</h3>
-      <p>Pull up the script. Read the story aloud — not the bullets, the actual narrative arc. Time yourself. Thirty seconds, max.</p>
-      <p>If you can't, one of three things is true: you're telling more than one story, you don't know which outcome leads, or your AI is the protagonist when it should be the supporting cast.</p>
-      <p>This test is not optional. Every reviewer should ask for it. Every writer should have it ready.</p>
+      <h3>Play it once. Ask what they saw.</h3>
+      <p>Pull a colleague who isn't on the project. Show the video once. Don't introduce it. Don't narrate over it. When it ends, ask: <em>what's the concept, and what are we being asked to do?</em></p>
+      <p>If they hedge — "something about agents..." or "the AI does more stuff?" — one of three things is true: the concept doesn't have a name yet, the ask is buried, or the video is pitching more than one idea.</p>
+      <p>This test is not optional. Every reviewer should run it. Every designer should have a colleague-pair lined up before the cut goes to the executive room. Concept videos that fail the playback test fail in the meeting that follows.</p>
     </div>
   </div>
 </section>
@@ -1279,10 +1543,10 @@
 <!-- ============ CHAPTER 06 — THE GATE ============ -->
 <section class="chapter" style="border-bottom: none; padding-bottom: 0;">
   <div class="ch-header">
-    <div class="ch-num">06<span class="slash">/</span>06</div>
+    <div class="ch-num">06<span class="slash">/</span>07</div>
     <div>
       <h2 class="ch-title">Three gates.<br/><em>Pass all three.</em></h2>
-      <p class="ch-deck">Before any video ships, it must pass these three checks. Not seven. Not twelve. Three. If it fails one, it goes back — no exceptions, no compromise on deadline.</p>
+      <p class="ch-deck">Before any concept video ships, it must pass these three checks. Not seven. Not twelve. Three. If it fails one, it goes back — no exceptions, no compromise on the executive meeting on the calendar.</p>
     </div>
   </div>
 
@@ -1291,24 +1555,101 @@
       <div class="gate-items">
         <div class="gate-item">
           <div class="gate-num">1</div>
-          <h4>One outcome,<br/>one story.</h4>
-          <p>Can a non-product person describe the film in a single sentence? If they list two things, the film is two films. Send it back.</p>
+          <h4>One idea,<br/>cleanly stated.</h4>
+          <p>One watch, one sentence back — no prompting. If the stakeholder hedges or lists two things, the concept is fuzzy or the video has more than one idea in it. Recut before the room sees it.</p>
         </div>
         <div class="gate-item">
           <div class="gate-num">2</div>
-          <h4>One human<br/>moment.</h4>
-          <p>Find the moment of empathy on the timeline. Point to it. If you can't point to it, it isn't there. Add it before approval.</p>
+          <h4>Honest about<br/>fidelity.</h4>
+          <p>Every frame carries one of the four chyrons (Shipping · In Build · Concept · Vision). Scrub the cut. Find a frame without one. If you find one, that frame doesn't ship — it's a credibility leak in a video about credibility.</p>
         </div>
         <div class="gate-item">
           <div class="gate-num">3</div>
-          <h4>AI as support,<br/>not subject.</h4>
-          <p>Count seconds where the human is on screen vs. seconds where the system is. The human should win, decisively. If not, recut.</p>
+          <h4>The ask is<br/>unmistakable.</h4>
+          <p>After the final beat, can the room name the specific action, the specific people, and the specific date? If the answer is "share feedback," the ask isn't sharp enough to move anything. Rewrite Beat 07 and re-cut.</p>
         </div>
       </div>
 
       <div class="gate-fail">
-        <strong>FAIL ANY ONE → BACK TO THE WRITER, NOT FORWARD TO PRODUCTION.</strong><br/>
-        Craft is the gate. Polish is craft. We don't approve videos that need to be "fixed in editing."
+        <strong>FAIL ANY ONE → BACK TO THE DESIGNER, NOT FORWARD TO THE EXECUTIVE ROOM.</strong><br/>
+        Craft is the gate. Concept clarity is craft. We don't ship videos that need a designer in the room to be understood.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 07 — LIFECYCLE & HANDOFF ============ -->
+<section class="chapter" id="lifecycle">
+  <div class="ch-header">
+    <div class="ch-num">07<span class="slash">/</span>07</div>
+    <div>
+      <h2 class="ch-title">Lifecycle<br/>&amp; <em>handoff.</em></h2>
+      <p class="ch-deck">Every concept video lives in stages. Product and Design produce it; Leadership reviews it for sales-grade promotion; Marketing adapts it for public distribution. Different hands, different bars, different definitions of "done" at each step. A video doesn't move forward without the previous stage signing off — and not every video needs to.</p>
+    </div>
+  </div>
+
+  <div class="gate-section" style="margin-top: 0;">
+    <div class="gate-inner">
+      <div class="gate-items">
+        <div class="gate-item">
+          <div class="gate-num">1</div>
+          <h4>Production.</h4>
+          <p>Joint output of Product and Design. Used to align internal leadership and to spark initial discovery conversations with customers. Lives inside Eightfold until Stage 2 promotes it — or stays a concept artifact, which is also a fine outcome.</p>
+          <div class="raci">
+            <div class="raci-row"><span class="raci-tag">R</span> Product + Design</div>
+            <div class="raci-row"><span class="raci-tag">A</span> UX Team</div>
+            <div class="raci-row"><span class="raci-tag">C</span> PM, Eng</div>
+            <div class="raci-row"><span class="raci-tag">I</span> GTM</div>
+          </div>
+        </div>
+        <div class="gate-item">
+          <div class="gate-num">2</div>
+          <h4>Promotion<br/>to demo.</h4>
+          <p>Leadership reviews and either promotes the video to sales-grade use or sends it back. Cultivate is the canonical path: what starts as design-led storytelling becomes the demo the Sales team takes to customers. The video doesn't change; the audience does.</p>
+          <div class="raci">
+            <div class="raci-row"><span class="raci-tag">R</span> Product + Design</div>
+            <div class="raci-row"><span class="raci-tag">A</span> Leadership</div>
+            <div class="raci-row"><span class="raci-tag">C</span> Sales</div>
+            <div class="raci-row"><span class="raci-tag">I</span> Marketing</div>
+          </div>
+        </div>
+        <div class="gate-item">
+          <div class="gate-num">3</div>
+          <h4>External<br/>adaptation.</h4>
+          <p>When a video earns public distribution — website, YouTube, marketing site — Marketing reviews, adapts, and hosts. UX delivers the asset kit. Marketing changes brand polish, music, VO, and CTAs; the concept and the fidelity choices stay.</p>
+          <div class="raci">
+            <div class="raci-row"><span class="raci-tag">R</span> Marketing</div>
+            <div class="raci-row"><span class="raci-tag">A</span> Marketing</div>
+            <div class="raci-row"><span class="raci-tag">C</span> UX Team</div>
+            <div class="raci-row"><span class="raci-tag">I</span> Product, Design</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lifecycle-sub">
+        <div class="ch-num">— STAGE 3 DETAIL: THE HANDOFF KIT</div>
+        <div class="shifts">
+          <div class="shift">
+            <div class="shift-from" style="text-decoration: none; color: var(--ink); font-style: italic;">Hand over</div>
+            <div class="shift-arrow">→</div>
+            <div class="shift-to" style="font-style: normal;">Editable source files (Figma frames, video master). Raw narration script and audio. Asset list with fidelity chyrons intact. One-page brief on the concept, the internal ask achieved, and who signed off.</div>
+          </div>
+          <div class="shift">
+            <div class="shift-from" style="text-decoration: none; color: var(--ink); font-style: italic;">Keep</div>
+            <div class="shift-arrow">→</div>
+            <div class="shift-to" style="font-style: normal;">The POV. The narrative arc (opportunity → thinking → concept → unlock). The fidelity choices and what each frame represents. If Marketing changes these, the concept stops being ours.</div>
+          </div>
+          <div class="shift">
+            <div class="shift-from" style="text-decoration: none; color: var(--ink); font-style: italic;">Let go</div>
+            <div class="shift-arrow">→</div>
+            <div class="shift-to" style="font-style: normal;">Brand intros and outros. Music, transitions, polish. VO swapped for public-facing voice. Internal-only context removed (no team names, no deadlines, no deal references). Length and CTAs adjusted per channel.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gate-fail" style="background: var(--paper); color: var(--ink); border: 1px solid var(--rule);">
+        <strong style="color: var(--ink);">CUSTOMER-CONVERSATION ADDENDUM →</strong><br/>
+        Stage 1 videos shown in customer conversations are <em>thinking artifacts</em>, never roadmap commitments. Frame verbally before playing ("here's how design is thinking about this"). Keep the chyrons visible. Never hand off the file — any external distribution routes through Marketing. Log which customer saw which video; the next QBR will ask.
       </div>
     </div>
   </div>
@@ -1318,10 +1659,10 @@
 <section class="formula">
   <div class="formula-eyebrow">— Team Memory Hook</div>
   <p class="formula-line">
-    Show the <em>tension.</em><span class="pipe">|</span>
-    Show the <em>shift.</em><span class="pipe">|</span>
-    Show <em>one human story.</em><span class="pipe">|</span>
-    Land the <em>value.</em>
+    Show the <em>opportunity.</em><span class="pipe">|</span>
+    Show the <em>thinking.</em><span class="pipe">|</span>
+    Make the <em>concept tangible.</em><span class="pipe">|</span>
+    Land the <em>ask.</em>
   </p>
 </section>
 
@@ -1330,11 +1671,11 @@
   <div class="colo-inner">
     <div class="colo-block">
       <div class="label">— On this document</div>
-      <p>This playbook is the standard for all Eightfold product films — Cultivate, launch, GTM. It supersedes prior video guidance. Updates are versioned and announced via the Design org.</p>
+      <p>This playbook is the standard for <em>concept videos</em> — the videos Product and Design ship as deliverables to align leadership, finalize concepts, and explore what could exist. <strong>Co-owned with Product. Marketing manages public adaptation.</strong> Marketing videos, sales demos, customer stories, and explainers each warrant their own playbook (forthcoming) and their own owners. Updates are versioned and announced via the Design org.</p>
     </div>
     <div class="colo-block">
       <div class="label">— How to use it</div>
-      <p>Read it once. Reference Chapter 06 (the three gates) before every approval. Reference Chapter 03 (the seven beats) before every script. Print Chapter 04 and pin it above your desk.</p>
+      <p>Start with Chapter 00 (scope) on every project — confirm this is the right playbook first. Reference Chapter 06 (the three gates) before every approval. Reference Chapter 03 (the seven beats) before every storyboard. Reference Chapter 07 (lifecycle &amp; handoff) before promoting a video to demo use or forwarding anything to Marketing. Print Chapter 04 and pin it above your desk.</p>
     </div>
     <div class="colo-block">
       <div class="label">— Brand palette</div>
